@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_cash_management_control.CashOpeningPopup" t-inherit="point_of_sale.CashOpeningPopup" t-inherit-mode="extension">
+        <xpath expr="//div[contains(@class, 'opening-cash-section')]" position="after">
+            <div t-if="pcmIsSuggestFloat" class="pcm-opening-hint mb-3">
+                <div>
+                    <span>Suggested fixed float:</span> <b t-esc="env.utils.formatCurrency(pcmFloatAmount)"/>
+                </div>
+                <div t-if="pcmFloatGap" class="pcm-note">
+                    <span>Last closing balance:</span> <t t-esc="env.utils.formatCurrency(pcmLastClosing)"/>
+                    <div>The gap is recorded as a float transfer, not as a cash difference.</div>
+                </div>
+            </div>
+            <div t-if="pcmIsFirstSessionFallback" class="pcm-opening-hint mb-3">
+                No previous closing balance was found for this Point of Sale: please count the opening cash.
+            </div>
+        </xpath>
+    </t>
+
+</templates>

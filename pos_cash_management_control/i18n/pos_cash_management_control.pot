@@ -1,0 +1,374 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_cash_management_control
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-23 18:00+0000\n"
+"PO-Revision-Date: 2026-11-23 18:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/pos_session.py:0
+msgid "%s - Opening float adjustment"
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/pos_session.py:0
+msgid "A cash count is required to close session %s (blind count)."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/closing_popup_patch.js:0
+#: code:addons/pos_cash_management_control/static/src/app/sale_details_button_patch.js:0
+msgid "Access Denied"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_config__pcm_closing_mode__blind
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_session__pcm_closing_mode__blind
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__res_config_settings__pos_pcm_closing_mode__blind
+msgid "Blind Count (Hide Expected Cash from Cashiers)"
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/closing_popup.xml:0
+msgid "Blind count: enter the cash you counted. The expected amount and the difference are reviewed by a manager."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/closing_popup.xml:0
+msgid "Blind count: the expected cash is visible to managers only"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields,help:pos_cash_management_control.field_pos_config__pcm_float_amount
+#: model:ir.model.fields,help:pos_cash_management_control.field_res_config_settings__pos_pcm_float_amount
+msgid "Cash float the drawer starts each session with."
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_management_control.res_config_settings_view_form
+msgid "Cash Management Control"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_pos_config__pcm_closing_mode
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_pos_session__pcm_closing_mode
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_res_config_settings__pos_pcm_closing_mode
+#: model_terms:ir.ui.view,arch_db:pos_cash_management_control.res_config_settings_view_form
+msgid "Closing Cash Control"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_management_control.view_pos_session_form
+msgid "Closing Cash Difference"
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/closing_popup_patch.js:0
+msgid "Confirm Blind Count"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_config__pcm_opening_mode__suggest_float
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_session__pcm_opening_mode__suggest_float
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__res_config_settings__pos_pcm_opening_mode__suggest_float
+msgid "Count with Suggested Fixed Float"
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/closing_popup.xml:0
+msgid "Counted by the server"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields,help:pos_cash_management_control.field_pos_config__pcm_float_account_id
+#: model:ir.model.fields,help:pos_cash_management_control.field_res_config_settings__pos_pcm_float_account_id
+msgid "Counterpart account of the float adjustment (cash moved between the drawer and the safe). Leave empty to book it on the suspense account, like a standard Cash In/Out."
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_management_control.view_pos_session_form
+msgid "Expected Closing Cash"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_management_control.res_config_settings_view_form
+msgid "Fixed Float"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_pos_config__pcm_float_amount
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_res_config_settings__pos_pcm_float_amount
+msgid "Fixed Float Amount"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_pos_config__pcm_float_account_id
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_res_config_settings__pos_pcm_float_account_id
+#: model_terms:ir.ui.view,arch_db:pos_cash_management_control.res_config_settings_view_form
+msgid "Float Transfer Account"
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/closing_popup.xml:0
+msgid "Hidden"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_pos_config__pcm_hide_daily_sale
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_res_config_settings__pos_pcm_hide_daily_sale
+msgid "Hide Daily Sale from Cashiers"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields,help:pos_cash_management_control.field_pos_config__pcm_closing_mode
+#: model:ir.model.fields,help:pos_cash_management_control.field_pos_session__pcm_closing_mode
+#: model:ir.model.fields,help:pos_cash_management_control.field_res_config_settings__pos_pcm_closing_mode
+msgid ""
+"How the closing cash of a session is counted:\n"
+"- Standard Count: the cashier sees the expected cash and the difference.\n"
+"- Blind Count: cashiers enter the counted cash without seeing the expected amount or the difference; POS managers keep full visibility.\n"
+"- No Count: the server records the expected cash as counted; no difference is posted."
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_management_control.res_config_settings_view_form
+msgid "How the closing cash of each session of this Point of Sale is counted"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields,help:pos_cash_management_control.field_pos_config__pcm_opening_mode
+#: model:ir.model.fields,help:pos_cash_management_control.field_pos_session__pcm_opening_mode
+#: model:ir.model.fields,help:pos_cash_management_control.field_res_config_settings__pos_pcm_opening_mode
+msgid ""
+"How the opening cash of a session is determined:\n"
+"- Standard Count: the cashier counts the cash; Odoo pre-fills the last closing balance.\n"
+"- Count with Suggested Fixed Float: the cashier counts the cash; the fixed float is pre-filled and the gap with the last closing balance is booked as a float transfer.\n"
+"- Open on Server with Last Closing Balance: no count, the session opens with the last closing balance (the very first session falls back to a standard count).\n"
+"- Open on Server with Fixed Float: no count, the session opens with the fixed float and the gap with the last closing balance is booked as a float transfer."
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_management_control.res_config_settings_view_form
+msgid "How the opening cash of each session of this Point of Sale is set"
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/closing_popup_patch.js:0
+msgid "Invalid Cash Count"
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/cash_opening_popup_patch.js:0
+msgid "Invalid Opening Cash"
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/cash_opening_popup.xml:0
+msgid "Last closing balance:"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_config__pcm_closing_mode__server_no_count
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_session__pcm_closing_mode__server_no_count
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__res_config_settings__pos_pcm_closing_mode__server_no_count
+msgid "No Count (Server Takes Expected Cash as Counted)"
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/cash_opening_popup.xml:0
+msgid "No previous closing balance was found for this Point of Sale: please count the opening cash."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/report_sale_details.py:0
+msgid "Only Point of Sale managers can view the Daily Sale report of %s."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/closing_popup_patch.js:0
+#: code:addons/pos_cash_management_control/static/src/app/sale_details_button_patch.js:0
+msgid "Only Point of Sale managers can view the Daily Sale report."
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_management_control.res_config_settings_view_form
+msgid "Only POS managers can download or print the Daily Sale report"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields,help:pos_cash_management_control.field_pos_config__pcm_hide_daily_sale
+#: model:ir.model.fields,help:pos_cash_management_control.field_res_config_settings__pos_pcm_hide_daily_sale
+msgid "Only POS managers can download or print the Daily Sale report of this Point of Sale."
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_config__pcm_opening_mode__server_fixed_float
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_session__pcm_opening_mode__server_fixed_float
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__res_config_settings__pos_pcm_opening_mode__server_fixed_float
+msgid "Open on Server with Fixed Float"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_config__pcm_opening_mode__server_last_closing
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_session__pcm_opening_mode__server_last_closing
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__res_config_settings__pos_pcm_opening_mode__server_last_closing
+msgid "Open on Server with Last Closing Balance"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_pos_session__pcm_opened_by_server
+msgid "Opened by Server"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_pos_config__pcm_opening_mode
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_pos_session__pcm_opening_mode
+#: model:ir.model.fields,field_description:pos_cash_management_control.field_res_config_settings__pos_pcm_opening_mode
+#: model_terms:ir.ui.view,arch_db:pos_cash_management_control.res_config_settings_view_form
+msgid "Opening Cash Control"
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/pos_session.py:0
+msgid "Opening cash set by the server (no count)."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/pos_session.py:0
+msgid "Opening float adjustment of %(amount)s: drawer reset from %(previous)s to the fixed float %(float)s."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/closing_popup_patch.js:0
+msgid "Please enter the counted cash before closing the session."
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_config__pcm_opening_mode__standard
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_session__pcm_opening_mode__standard
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__res_config_settings__pos_pcm_opening_mode__standard
+msgid "Standard Count"
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_config__pcm_closing_mode__standard
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__pos_session__pcm_closing_mode__standard
+#: model:ir.model.fields.selection,name:pos_cash_management_control.selection__res_config_settings__pos_pcm_closing_mode__standard
+msgid "Standard Count (Show Difference)"
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/cash_opening_popup.xml:0
+msgid "Suggested fixed float:"
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/pos_session.py:0
+msgid "The counted cash cannot be negative."
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_management_control.res_config_settings_view_form
+msgid "The first session of this Point of Sale has no previous closing balance and is counted by the cashier."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/pos_config.py:0
+msgid "The fixed float amount of %s cannot be negative."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/pos_config.py:0
+msgid "The float transfer account of %s must belong to the company %s."
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_management_control.res_config_settings_view_form
+msgid "The gap between the last closing balance and the float is booked as a float transfer, not as a cash difference."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/cash_opening_popup.xml:0
+msgid "The gap is recorded as a float transfer, not as a cash difference."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/pos_session.py:0
+msgid "The opening cash amount cannot be negative."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/pos_session.py:0
+msgid "The opening cash amount is not a valid number."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/cash_opening_popup_patch.js:0
+msgid "The opening cash amount must be a positive number."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/pos_session.py:0
+msgid "The opening cash of %s is set by the server; it cannot be submitted from the Point of Sale."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/pos_session.py:0
+msgid "The opening cash of session %s has already been recorded."
+msgstr ""
+
+#. module: pos_cash_management_control
+#: model:ir.model.fields,help:pos_cash_management_control.field_pos_session__pcm_opened_by_server
+msgid "The opening cash was set by the server, without a count by the cashier."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-javascript
+#: code:addons/pos_cash_management_control/static/src/app/closing_popup_patch.js:0
+msgid ""
+"You are declaring %s as the counted cash.\n"
+"The expected amount is hidden; any difference will be reviewed by a manager."
+msgstr ""
+
+#. module: pos_cash_management_control
+#. odoo-python
+#: code:addons/pos_cash_management_control/models/pos_config.py:0
+msgid "You cannot change the cash control settings of %s while a session is in progress. Close the session first."
+msgstr ""
