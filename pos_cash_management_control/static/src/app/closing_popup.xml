@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_cash_management_control.ClosePosPopup" t-inherit="point_of_sale.ClosePosPopup" t-inherit-mode="extension">
+        <!-- Blind count: the session total would reveal the expected cash -->
+        <xpath expr="//span[@t-out='this.pos.formatCurrency(this.props.orders_details.amount)']" position="attributes">
+            <attribute name="t-if">!this.pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//span[@t-out='this.pos.formatCurrency(this.props.orders_details.amount)']" position="after">
+            <span t-else="" class="amount pcm-hidden-amount">***</span>
+        </xpath>
+
+        <!-- Expected cash (header line of the cash method) -->
+        <xpath expr="//div[contains(@class, 'payment-methods-overview')]//span[@t-out='this.pos.formatCurrency(this.props.default_cash_details.amount)']" position="attributes">
+            <attribute name="t-if">!this.pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//div[contains(@class, 'payment-methods-overview')]//span[@t-out='this.pos.formatCurrency(this.props.default_cash_details.amount)']" position="after">
+            <span t-else="" class="pcm-hidden-amount" title="Blind count: the expected cash is visible to managers only">Hidden</span>
+        </xpath>
+
+        <!-- Opening, cash payments and cash in/out breakdown -->
+        <xpath expr="//div[contains(@class, 'payment-methods-overview')]//span[@t-out='this.pos.formatCurrency(this.props.default_cash_details.opening)']/.." position="attributes">
+            <attribute name="t-if">!this.pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//div[@t-if='this.props.default_cash_details.payment_amount']" position="attributes">
+            <attribute name="t-if">this.props.default_cash_details.payment_amount and !this.pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//div[contains(@class, 'payment-methods-overview')]//PaymentMethodBreakdown" position="attributes">
+            <attribute name="t-if">!this.pcmBlind</attribute>
+        </xpath>
+
+        <!-- Difference -->
+        <xpath expr="//div[contains(@class, 'payment-methods-overview')]//span[contains(@class, 'cash-difference')]/.." position="attributes">
+            <attribute name="t-if">!this.pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//div[contains(@class, 'payment-methods-overview')]//span[contains(@class, 'cash-difference')]/.." position="after">
+            <div t-if="this.pcmBlind" class="pcm-blind-info text-muted border-start ps-2">Blind count: enter the cash you counted. The expected amount and the difference are reviewed by a manager.</div>
+        </xpath>
+
+        <!-- Cash count input: no input when the server counts -->
+        <xpath expr="//div[CashInput[contains(@tModel, 'default_cash_details')]]" position="attributes">
+            <attribute name="t-if">!this.pcmServerCount</attribute>
+        </xpath>
+        <xpath expr="//div[CashInput[contains(@tModel, 'default_cash_details')]]" position="after">
+            <div t-else="" class="pcm-server-count mt-1">
+                <span t-out="this.pos.formatCurrency(this.props.default_cash_details.amount)"/>
+                <div class="pcm-note">Counted by the server</div>
+            </div>
+        </xpath>
+
+        <!-- Daily Sale (download and print) -->
+        <xpath expr="//button[@t-on-click='this.downloadSalesReport']" position="attributes">
+            <attribute name="t-if">!this.pcmHideDailySale</attribute>
+        </xpath>
+        <xpath expr="//button[@t-if='this.pos.ticketPrinter.hasReceiptPrinters']" position="attributes">
+            <attribute name="t-if">this.pos.ticketPrinter.hasReceiptPrinters and !this.pcmHideDailySale</attribute>
+        </xpath>
+
+        <!-- Per-employee cash block of pos_hr (a dependency, so its nodes already exist here) -->
+        <xpath expr="//div[@t-if='this.pos.config.cash_control and this.pos.config.module_pos_hr']//span[@t-out='this.pos.formatCurrency(this.props.default_cash_details.amount)']" position="attributes">
+            <attribute name="t-if">!this.pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//div[@t-if='this.pos.config.cash_control and this.pos.config.module_pos_hr']//span[@t-out='this.pos.formatCurrency(this.props.default_cash_details.amount)']" position="after">
+            <span t-else="" class="pcm-hidden-amount" title="Blind count: the expected cash is visible to managers only">Hidden</span>
+        </xpath>
+        <xpath expr="//div[@t-if='this.pos.config.cash_control and this.pos.config.module_pos_hr']//span[@t-out='this.pos.formatCurrency(this.props.default_cash_details.opening)']/.." position="attributes">
+            <attribute name="t-if">!this.pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//div[@t-if='this.pos.config.cash_control and this.pos.config.module_pos_hr']//PaymentMethodBreakdown[@transactions='this.props.default_cash_details.amount_per_employee']" position="attributes">
+            <attribute name="t-if">!this.pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//div[@t-if='this.pos.config.cash_control and this.pos.config.module_pos_hr']//PaymentMethodBreakdown[@transactions='this.props.default_cash_details.moves_per_employee']" position="attributes">
+            <attribute name="t-if">!this.pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//div[@t-if='this.pos.config.cash_control and this.pos.config.module_pos_hr']//span[contains(@class, 'cash-difference')]/.." position="attributes">
+            <attribute name="t-if">!this.pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//div[@t-if='this.pos.config.cash_control and this.pos.config.module_pos_hr']//span[contains(@class, 'cash-difference')]/.." position="after">
+            <div t-if="this.pcmBlind" class="pcm-blind-info text-muted border-start ps-2">Blind count: enter the cash you counted. The expected amount and the difference are reviewed by a manager.</div>
+        </xpath>
+    </t>
+
+</templates>
