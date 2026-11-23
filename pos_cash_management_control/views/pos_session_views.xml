@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_session_form" model="ir.ui.view">
+        <field name="name">pos.session.form.inherit.pos_cash_management_control</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='cash_register_balance_end_real']" position="after">
+                <field name="pcm_opening_mode" invisible="not cash_control"/>
+                <field name="pcm_opened_by_server" invisible="not pcm_opened_by_server"/>
+                <field name="pcm_float_statement_line_id" invisible="not pcm_float_statement_line_id"
+                       groups="account.group_account_readonly"/>
+                <field name="pcm_closing_mode" invisible="not cash_control"/>
+                <field name="cash_register_balance_end" string="Expected Closing Cash"
+                       groups="point_of_sale.group_pos_manager"
+                       invisible="not cash_control or state != 'closed'"/>
+                <field name="cash_register_difference" string="Closing Cash Difference"
+                       groups="point_of_sale.group_pos_manager"
+                       invisible="not cash_control or state != 'closed'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

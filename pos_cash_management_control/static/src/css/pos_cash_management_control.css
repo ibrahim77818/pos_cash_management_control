@@ -1,0 +1,21 @@
+/* Selectors do not depend on dialog wrapper classes, which change between versions. */
+.pcm-hidden-amount {
+    color: #6c757d;
+    font-style: italic;
+}
+.pcm-server-count .pcm-note,
+.pcm-opening-hint .pcm-note {
+    font-size: 0.85em;
+    color: #6c757d;
+}
+.pcm-blind-info {
+    font-size: 0.9em;
+    color: #6c757d;
+    padding-top: 4px;
+}
+.pcm-opening-hint {
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: #f2f7fb;
+    text-align: start;
+}
