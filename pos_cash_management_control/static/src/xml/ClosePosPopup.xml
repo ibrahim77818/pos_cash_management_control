@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ClosePosPopup" t-inherit="point_of_sale.ClosePosPopup" t-inherit-mode="extension" owl="1">
+        <!-- Blind count: the session total would reveal the expected cash -->
+        <xpath expr="//span[@t-esc='env.pos.format_currency(ordersDetails.amount)']" position="attributes">
+            <attribute name="t-if">!pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//span[@t-esc='env.pos.format_currency(ordersDetails.amount)']" position="after">
+            <span t-else="" class="amount pcm-hidden-amount">***</span>
+        </xpath>
+
+        <!-- Expected cash -->
+        <xpath expr="//td[@t-esc='env.pos.format_currency(defaultCashDetails.amount)']" position="attributes">
+            <attribute name="t-if">!pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//td[@t-esc='env.pos.format_currency(defaultCashDetails.amount)']" position="after">
+            <td t-else="" class="pcm-hidden-amount" title="Blind count: the expected cash is visible to managers only">Hidden</td>
+        </xpath>
+
+        <!-- Counted cash: no input when the server counts -->
+        <xpath expr="//td[contains(@t-on-input, 'defaultCashDetails.id')]" position="attributes">
+            <attribute name="t-if">!pcmServerCount</attribute>
+        </xpath>
+        <xpath expr="//td[contains(@t-on-input, 'defaultCashDetails.id')]" position="after">
+            <td t-else="" class="pcm-server-count">
+                <span t-esc="env.pos.format_currency(defaultCashDetails.amount)"/>
+                <div class="pcm-note">Counted by the server</div>
+            </td>
+        </xpath>
+
+        <!-- Difference -->
+        <xpath expr="//td[@t-esc='env.pos.format_currency(state.payments[defaultCashDetails.id].difference)']" position="attributes">
+            <attribute name="t-if">!pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//td[@t-esc='env.pos.format_currency(state.payments[defaultCashDetails.id].difference)']" position="after">
+            <td t-else="" class="pcm-hidden-amount">Hidden</td>
+        </xpath>
+
+        <!-- Opening / cash moves / cash payments breakdown -->
+        <xpath expr="//tbody[@class='cash-overview']" position="attributes">
+            <attribute name="t-if">!pcmBlind</attribute>
+        </xpath>
+        <xpath expr="//tbody[@class='cash-overview']" position="after">
+            <tbody t-else="" class="pcm-blind-info">
+                <tr>
+                    <td colspan="4">Blind count: enter the cash you counted. The expected amount and the difference are reviewed by a manager.</td>
+                </tr>
+            </tbody>
+        </xpath>
+
+        <!-- Daily Sale (download and print) -->
+        <xpath expr="//div[@t-on-click='downloadSalesReport']" position="attributes">
+            <attribute name="t-if">!pcmHideDailySale</attribute>
+        </xpath>
+        <xpath expr="//div[@t-if='env.proxy.printer']" position="attributes">
+            <attribute name="t-if">env.proxy.printer and !pcmHideDailySale</attribute>
+        </xpath>
+    </t>
+
+</templates>

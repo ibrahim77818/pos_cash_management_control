@@ -1,0 +1,185 @@
+<!-- Odoo Apps description page for pos_cash_management_control (Odoo 16.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
+
+<!-- ============================== HERO ============================== -->
+<div style="background:linear-gradient(120deg,#017E84 0%,#3d6b78 45%,#714B67 100%);border-radius:18px;padding:48px 40px 40px;color:#ffffff;margin-top:12px;">
+  <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px;">Point of Sale &middot; Cash Control &middot; Accounting</div>
+  <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">POS Cash Management Control</h1>
+  <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">Decide, per Point of Sale, how the drawer is opened and how it is counted at closing: fixed float, opening on the server, blind count or no count. Every rule is enforced by the server and every cash movement lands in the right account.</p>
+  <div>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 16.0</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">English &amp; Arabic</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">21 automated tests</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: pos_cash_management_control</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
+  </div>
+</div>
+
+<!-- ============================== KEY NUMBERS ============================== -->
+<div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">4 opening modes</div><div style="font-size:15px;color:#555;">Standard, suggested float, server last closing, server fixed float</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">3 closing modes</div><div style="font-size:15px;color:#555;">Standard, blind count, server no-count</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">0 extra RPCs</div><div style="font-size:15px;color:#555;">Settings load once with the POS session</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">21 tests</div><div style="font-size:15px;color:#555;">Modes, edge cases and accounting entries</div></div>
+</div>
+
+<!-- ============================== WHY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Odoo&rsquo;s cash control is one fixed flow for every shop. Real stores need different rules for different counters.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 16</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>The opening popup always pre-fills the <b>last closing balance</b>; there is no notion of a <b>fixed float</b>.</li>
+      <li>Resetting the drawer to a float is posted as an <b>opening loss or profit</b>, which distorts cash differences.</li>
+      <li>Every session needs a <b>manual opening count</b>, even where cash never leaves the drawer.</li>
+      <li>The closing screen shows the <b>expected cash and the difference</b> to the cashier, who can count to match it.</li>
+      <li>Counting is mandatory even for counters where the store wants the <b>system figure</b> as the closing balance.</li>
+      <li>Any POS user can download or print the <b>Daily Sale</b> report.</li>
+    </ul>
+  </div>
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#017E84;margin:0 0 12px;">With this module</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li><b>Count with Suggested Fixed Float</b> pre-fills the float and shows the last closing balance next to it.</li>
+      <li>The gap is booked as a <b>float transfer</b> to a <b>Float Transfer Account</b> (e.g. the safe); the count is compared with the float.</li>
+      <li><b>Open on Server</b> opens the session with no popup, from the last closing balance or from the fixed float.</li>
+      <li><b>Blind Count</b> hides the expected cash, the breakdown and the difference from cashiers; managers still see everything.</li>
+      <li><b>No Count</b> makes the server record the expected cash as counted, so no difference is ever posted.</li>
+      <li><b>Hide Daily Sale from Cashiers</b> hides the buttons and blocks the report on the server.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================== HOW IT WORKS ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">How it works</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Four steps, no change to the way cashiers sell.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Configure</div><div style="font-size:14px;color:#555;">Pick the opening and closing modes of each Point of Sale in its settings.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Open</div><div style="font-size:14px;color:#555;">The cashier counts against the float, or the server opens the session by itself.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Close</div><div style="font-size:14px;color:#555;">Standard, blind or server count, depending on the mode and on who is closing.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Review</div><div style="font-size:14px;color:#555;">Managers see the expected cash and the difference on the session; accounting is already balanced.</div></div>
+</div>
+
+<!-- ============================== FEATURES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Features</h2>
+<p style="font-size:16px;color:#555;margin:0 0 4px;">Screenshots come from an Odoo 16 Enterprise demo database: a <b>Main Store</b> POS in SAR with a 500.00&nbsp;SR float, a previous closing of 941.00&nbsp;SR and the <b>101005 Main Safe</b> account as float transfer account.</p>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Menus</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">All options in one settings section, per Point of Sale</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Point of Sale &rsaquo; Configuration &rsaquo; Settings</b>, choose the shop, then the <b>Cash Management Control</b> section (shown when the POS has a cash payment method): <b>Opening Cash Control</b>, <b>Fixed Float</b>, <b>Float Transfer Account</b>, <b>Closing Cash Control</b> and <b>Hide Daily Sale from Cashiers</b>. Defaults keep standard Odoo behaviour, and the settings are locked while a session of that POS is running.</p>
+  <img src="pcm_01_settings.png" alt="Cash Management Control section in Point of Sale settings" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Start every shift with the same float</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">With <b>Count with Suggested Fixed Float</b>, the <b>Opening Cash Control</b> popup pre-fills the float and shows the <b>Last closing balance</b>. The cashier counts the drawer as usual. The 441.00&nbsp;SR taken out to bring 941.00&nbsp;SR back to the 500.00&nbsp;SR float is booked as an <b>Opening float adjustment</b>, not as a loss; only a real counting gap becomes a cash difference.</p>
+  <img src="pcm_02_opening_float.png" alt="Opening Cash Control popup with suggested fixed float and last closing balance" style="width:100%;max-width:640px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Blind count: cashiers count, managers judge</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">With <b>Blind Count</b>, a cashier sees <b>Hidden</b> instead of the expected cash and the difference, and <b>***</b> instead of the session total. The opening, cash moves and cash payments breakdown is not sent to the cashier&rsquo;s screen by the server at all. Before closing, a <b>Confirm Blind Count</b> dialog asks the cashier to confirm the declared amount.</p>
+  <img src="pcm_03_closing_blind_cashier.png" alt="Closing Session popup for a cashier with expected cash and difference hidden" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="pcm_05_blind_confirm.png" alt="Confirm Blind Count dialog declaring 1,360.00 SR" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Managers keep full visibility</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The same blind-count session closed by a POS manager shows the full standard screen: expected 1,369.00&nbsp;SR, the opening of 941.00&nbsp;SR, the float adjustment, a cash out and the cash payments, with a difference of <b>-9.00&nbsp;SR</b>. The Daily Sale download button stays available to managers.</p>
+  <img src="pcm_04_closing_blind_manager.png" alt="Closing Session popup for a manager with expected cash, breakdown and difference" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Open on the server, close without counting</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Open on Server with Fixed Float</b> or <b>Open on Server with Last Closing Balance</b> skips the opening popup: the session is already open when the POS loads. With <b>No Count (Server Takes Expected Cash as Counted)</b>, the Counted column shows <b>Counted by the server</b> and the server ignores any amount sent from the POS, so the difference is always 0.00.</p>
+  <img src="pcm_08_closing_server_count.png" alt="Closing Session popup with cash counted by the server" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Review on the session form</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Point of Sale &rsaquo; Orders &rsaquo; Sessions</b>: each cash-controlled session shows its <b>Opening Cash Control</b> and <b>Closing Cash Control</b> modes, <b>Opened by Server</b> when relevant, and, for POS managers only, <b>Expected Closing Cash</b> and <b>Closing Cash Difference</b> once closed.</p>
+  <img src="pcm_06_session_form.png" alt="POS session form with cash control modes, expected closing cash and difference" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 6</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Balanced cash register entries</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The journal items of the session&rsquo;s cash register, grouped by account: the float adjustment moves 441.00&nbsp;SR from <b>105001 Cash</b> to <b>101005 Main Safe</b>, the cash out goes to the suspense account like any standard Cash In/Out, sales reach <b>Accounts Receivable (PoS)</b> and only the real counting gap of 9.00&nbsp;SR reaches <b>Cash Difference Loss</b>.</p>
+  <img src="pcm_07_cash_register_entries.png" alt="Journal items of the session cash register grouped by account" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Rule:</b> expected cash = last closing balance + cash moves (including the float adjustment) + cash payments. In the demo: 941.00 &minus; 441.00 &minus; 60.00 + 929.00 = 1,369.00&nbsp;SR. The cashier counted 1,360.00&nbsp;SR, so &minus;9.00&nbsp;SR is posted as a loss.</div>
+</div>
+
+<!-- ============================== MODES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">The modes at a glance</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Set per Point of Sale. Standard modes are the defaults.</p>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#dbeafe;color:#1d4ed8;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Standard Count</span> opening as in Odoo: the cashier counts, the last closing balance is pre-filled</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Suggested Float</span> the cashier counts against the fixed float; the gap is a float transfer</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Server Last Closing</span> no count; opens with the last closing balance</div>
+<div style="margin-bottom:18px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Server Fixed Float</span> no count; opens with the float, the gap is a float transfer</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#dbeafe;color:#1d4ed8;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Standard Count</span> closing as in Odoo: expected cash and difference shown</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fef3c7;color:#b45309;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Blind Count</span> cashiers count without seeing the expected cash or the difference</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">No Count</span> the server records the expected cash as counted</div>
+<div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Enforced on the server:</b> an opening count sent from the POS for a server-opened session is refused, a second opening count is refused, negative counts are refused, and in No Count mode the counted cash is reset to the expected cash right before validation, whether the session is closed from the POS, from the back end or through the force-close wizard.</div>
+
+<!-- ============================== CORNER CASES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Each of these is covered by code and, where possible, by an automated test.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>First session of a new shop</b><br/><span style="color:#555;">Server Last Closing has no previous balance, so the first session falls back to a normal count. Server Fixed Float books the whole float as cash in.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Float equal to the last closing</b><br/><span style="color:#555;">No adjustment line is created; the session simply opens.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Float of zero</b><br/><span style="color:#555;">The whole drawer is moved out at opening, for shops that empty the drawer every night.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Cash moves after the count</b><br/><span style="color:#555;">In No Count mode a Cash In/Out made after counting is still included in the closing balance.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Settings changed mid-session</b><br/><span style="color:#555;">Refused while a session is running, so the POS screen and the server always apply the same rules.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Blind count in the chatter</b><br/><span style="color:#555;">The closing message posted by a cashier does not reveal the difference.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>pos_hr employees</b><br/><span style="color:#555;">The POS screen uses the logged-in employee&rsquo;s role, so a cashier employee gets the blind view.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Recovery sessions and POS without cash</b><br/><span style="color:#555;">Left to standard Odoo: the rules apply only to cash-controlled, non-rescue sessions.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Multi-company</b><br/><span style="color:#555;">The Float Transfer Account must belong to the POS company; this is checked on save.</span></div>
+</div>
+
+<!-- ============================== SECURITY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Security</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">No new groups: roles follow the standard Point of Sale groups.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Who</th><th style="text-align:left;padding:10px 14px;">Sees / can do</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Point of Sale / User (cashier)</td><td style="padding:10px 14px;">In Blind Count: no expected cash, breakdown, total or difference, either on screen or from the server. With Hide Daily Sale: no Daily Sale download or print, refused on the server.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Point of Sale / Administrator</td><td style="padding:10px 14px;">Full closing screen in every mode, Daily Sale report, Expected Closing Cash and Closing Cash Difference on the session form, all settings.</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">pos_hr employee</td><td style="padding:10px 14px;">The POS screen follows the employee&rsquo;s manager or cashier role; server checks follow the logged-in Odoo user.</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Multi-company</td><td style="padding:10px 14px;">Settings are per Point of Sale; the float transfer account must belong to the POS company.</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== TECHNICAL ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Technical details</h2>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Odoo version</td><td style="padding:10px 14px;">16.0, Community and Enterprise</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Depends on</td><td style="padding:10px 14px;"><code>point_of_sale</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Settings</td><td style="padding:10px 14px;">Point of Sale &rsaquo; Configuration &rsaquo; Settings &rsaquo; Cash Management Control</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Models extended</td><td style="padding:10px 14px;"><code>pos.config</code>, <code>pos.session</code>, <code>res.config.settings</code>, <code>report.point_of_sale.report_saledetails</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">POS frontend</td><td style="padding:10px 14px;">Extends <code>PosGlobalState</code>, <code>CashOpeningPopup</code>, <code>ClosePosPopup</code>, <code>SaleDetailsButton</code> and <code>Chrome</code>; settings are cached in <code>_processData()</code>, no extra RPC</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Core files</td><td style="padding:10px 14px;">No core file modified; all changes through inheritance</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">Translations</td><td style="padding:10px 14px;">English and Arabic (<code>i18n/ar.po</code>), plus a <code>.pot</code> template</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:240px;color:#777;">Automated tests</td><td style="padding:10px 14px;">21 tests: defaults, every opening mode and its first-session edge case, blind and no-count closing, cash register and journal entry accuracy, Daily Sale access, settings lock, POS load payload</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:240px;color:#777;">License</td><td style="padding:10px 14px;">LGPL-3</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== CONTACT ============================== -->
+<div style="margin:52px 0 40px;background:linear-gradient(120deg,#714B67 0%,#017E84 100%);border-radius:18px;padding:36px 40px;color:#fff;">
+  <h2 style="font-size:26px;font-weight:700;margin:0 0 8px;color:#fff;">Support &amp; customization</h2>
+  <p style="font-size:16px;line-height:1.6;margin:0 0 20px;color:#fff;opacity:.95;">Questions, a demo, or an adaptation to your own process? Get in touch.</p>
+  <a href="mailto:ibrahim.yahiah@gmail.com" style="display:inline-block;background:#fff;color:#714B67;font-weight:700;text-decoration:none;border-radius:8px;padding:12px 22px;margin:0 12px 10px 0;">&#9993;  ibrahim.yahiah@gmail.com</a>
+  <a href="https://www.linkedin.com/in/ibrahim-yahia" target="_blank" rel="noopener" style="display:inline-block;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;border-radius:8px;padding:10px 22px;margin:0 0 10px 0;">LinkedIn: Ibrahim Yahia</a>
+  <p style="font-size:13px;margin:14px 0 0;opacity:.8;color:#fff;">Author: Ibrahim Yahia &middot; License: LGPL-3</p>
+</div>
+
+</section>

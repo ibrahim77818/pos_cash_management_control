@@ -1,0 +1,21 @@
+.pos .close-pos-popup .pcm-hidden-amount {
+    color: #6c757d;
+    font-style: italic;
+}
+.pos .close-pos-popup .pcm-server-count .pcm-note,
+.pos .opening-cash-control .pcm-note {
+    font-size: 0.8em;
+    color: #6c757d;
+}
+.pos .close-pos-popup .pcm-blind-info td {
+    font-size: 0.9em;
+    color: #6c757d;
+    padding-top: 8px;
+}
+.pos .opening-cash-control .pcm-opening-hint {
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: #f2f7fb;
+    text-align: start;
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos_cash_management_control</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='pos_payment_section']" position="after">
+                <h2 attrs="{'invisible': [('pos_cash_control', '=', False)]}">Cash Management Control</h2>
+                <div class="row mt16 o_settings_container" id="pcm_cash_control_section"
+                     attrs="{'invisible': [('pos_cash_control', '=', False)]}">
+                    <div class="col-12 col-lg-6 o_setting_box" id="pcm_opening_cash_control">
+                        <div class="o_setting_right_pane">
+                            <label for="pos_pcm_opening_mode" string="Opening Cash Control"/>
+                            <div class="text-muted">
+                                How the opening cash of each session of this Point of Sale is set
+                            </div>
+                            <div class="content-group mt16">
+                                <field name="pos_pcm_opening_mode" widget="radio"
+                                       attrs="{'readonly': [('pos_has_active_session', '=', True)]}"/>
+                            </div>
+                            <div class="content-group mt8"
+                                 attrs="{'invisible': [('pos_pcm_opening_mode', 'not in', ['suggest_float', 'server_fixed_float'])]}">
+                                <div class="row">
+                                    <label for="pos_pcm_float_amount" string="Fixed Float" class="col-lg-4 o_light_label"/>
+                                    <field name="pos_pcm_float_amount"
+                                           attrs="{'readonly': [('pos_has_active_session', '=', True)]}"/>
+                                </div>
+                                <div class="row mt8">
+                                    <label for="pos_pcm_float_account_id" string="Float Transfer Account" class="col-lg-4 o_light_label"/>
+                                    <field name="pos_pcm_float_account_id" options="{'no_create': True}"
+                                           attrs="{'readonly': [('pos_has_active_session', '=', True)]}"/>
+                                </div>
+                                <div class="text-muted mt8">
+                                    The gap between the last closing balance and the float is booked as a float transfer, not as a cash difference.
+                                </div>
+                            </div>
+                            <div class="text-muted mt8"
+                                 attrs="{'invisible': [('pos_pcm_opening_mode', '!=', 'server_last_closing')]}">
+                                The first session of this Point of Sale has no previous closing balance and is counted by the cashier.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="pcm_closing_cash_control">
+                        <div class="o_setting_right_pane">
+                            <label for="pos_pcm_closing_mode" string="Closing Cash Control"/>
+                            <div class="text-muted">
+                                How the closing cash of each session of this Point of Sale is counted
+                            </div>
+                            <div class="content-group mt16">
+                                <field name="pos_pcm_closing_mode" widget="radio"
+                                       attrs="{'readonly': [('pos_has_active_session', '=', True)]}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="pcm_hide_daily_sale">
+                        <div class="o_setting_left_pane">
+                            <field name="pos_pcm_hide_daily_sale"
+                                   attrs="{'readonly': [('pos_has_active_session', '=', True)]}"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_pcm_hide_daily_sale"/>
+                            <div class="text-muted">
+                                Only POS managers can download or print the Daily Sale report
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
